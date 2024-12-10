@@ -1,6 +1,6 @@
 html,
-body,
-* {
+body {
+    margin: 0;
     padding: 0;
     list-style: none;
     box-sizing: border-box;
@@ -28,6 +28,13 @@ button {
     justify-content: space-between;
 }
 
+.title-about {
+    width: 550px;
+    margin: auto;
+    text-align: center;
+    padding: 30px 0 ;
+}
+
 h1 {
     font-size: 40px;
     margin: 0;
@@ -53,7 +60,7 @@ header .navigation .icons-signin-area {
 
 /* header banner */
 header .banner {
-    padding: 20px 0;
+    padding: 50px 0;
 }
 header .banner .bg-img {
     background-image: url(images/bgbanner.png);
@@ -86,7 +93,7 @@ header .banner .bg-img .overlay .left-content .input-area {
 }
 header .banner .bg-img .overlay .left-content .input-area button {
     position: absolute;
-    left: 207px;
+    left: 251px;
     top: 3.4px;
 }
 header .banner .bg-img .overlay .right-content {
@@ -102,12 +109,6 @@ header .banner .bg-img .overlay .right-content .bg-collor {
 
 
 /* main discuss */
-main .discuss .title-about {
-    width: 550px;
-    margin: auto;
-    text-align: center;
-    padding: 30px 0 ;
-}
 main .discuss .post-read-area {
     gap: 20px;
 }
@@ -152,4 +153,66 @@ main .discuss .post-read-area .reading-details {
     padding: 0 20px;
     margin-top: 20px;
     border-radius: 10px;
+    gap: 10px;
+}
+main .discuss .post-read-area .reading-details .vew-counting {
+    gap: 5px;
+}
+
+
+/* join-forum */
+main .discuss .join-forum {
+    padding: 80px 0;
+}
+main .discuss .join-forum .bg-collor {
+    background-color: rgb(18, 19, 45, .8);
+    color: white;
+    padding: 40px;
+    border-radius: 30px;
+}
+
+
+
+/* latest-posts */
+main .latest-posts .card-area {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+}
+main .latest-posts .card-area .card {
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 25px;
+    padding: 20px;
+    max-width: 320px;
+}
+main .latest-posts .card-area .card>img {
+    margin: auto;
+    border-radius: 25px 25px 0 0;
+}
+main .latest-posts .card-area .card .date {
+    padding: 10px 0;
+}
+main .latest-posts .card-area .card .profile {
+    justify-content: flex-start;
+    gap: 20px;
+}
+main .latest-posts .card-area .card .profile .name-details h5 {
+    margin: 0;
+}
+main .latest-posts .card-area .card .profile .name-details span {
+    font-size: 12px;
+}
+
+
+
+footer {
+    margin-top: 150px;
+    padding: 30px 0;
+    background-color: rgba(128, 128, 128, 0.2);
+    text-align: center;
+}
+footer .icons {
+    justify-content: center;
+    gap: 30px;
+    padding-bottom: 20px;
 }
