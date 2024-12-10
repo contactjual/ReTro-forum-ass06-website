@@ -1,0 +1,155 @@
+html,
+body,
+* {
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1500px;
+    font-family: "Poppins", sans-serif;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: rgba(80, 80, 246, 0.832);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 40px;
+    margin: 0;
+} 
+
+h4 {
+    font-size: 18px;
+    margin: 0;
+}
+
+
+
+/* header navigation */
+header .navigation {
+    padding: 15px 0;
+}
+
+header .navigation .icons-signin-area {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* header banner */
+header .banner {
+    padding: 20px 0;
+}
+header .banner .bg-img {
+    background-image: url(images/bgbanner.png);
+    background-repeat: no-repeat;
+
+    background-size: 100% 300px;
+    background-position: bottom center;
+    border-radius: 0 30px 30px 0;
+}
+header .banner .bg-img .overlay {
+    background-color: rgb(18, 19, 45, .8);
+    width: 100%;
+    height: 400px;
+    color: white;
+    justify-content: space-around;
+    border-radius: 30px;
+}
+header .banner .bg-img .overlay .left-content {
+    flex-basis: 40%;
+}
+header .banner .bg-img .overlay .left-content input {
+    padding: 12px 20px;
+    width: 300px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+}
+header .banner .bg-img .overlay .left-content .input-area {
+    position: relative;
+}
+header .banner .bg-img .overlay .left-content .input-area button {
+    position: absolute;
+    left: 207px;
+    top: 3.4px;
+}
+header .banner .bg-img .overlay .right-content {
+    flex-basis: 25%;
+}
+header .banner .bg-img .overlay .right-content .bg-collor {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.837);
+    padding: 30px 20px;
+    border-radius: 30px;
+}
+
+
+
+/* main discuss */
+main .discuss .title-about {
+    width: 550px;
+    margin: auto;
+    text-align: center;
+    padding: 30px 0 ;
+}
+main .discuss .post-read-area {
+    gap: 20px;
+}
+main .discuss .post-read-area .post-area .profile-area {
+    position: relative;
+}
+main .discuss .post-read-area .post-area .active-status {
+    position: absolute;
+    left: 37px;
+    top: -5px;
+}
+main .discuss .post-read-area .post-area .post-card {
+    padding: 25px;
+    border: 1px solid rgb(75, 75, 247);
+    background-color: rgb(75, 75, 247, .1);
+    border-radius: 10px;
+    align-items: flex-start;
+    gap: 20px;
+}
+main .discuss .post-read-area .post-area .post-card .catagory-author>span {
+    margin-right: 20px;
+}
+main .discuss .post-read-area .post-area .post-card .content-area .post-discription {
+    border-bottom: 1px dashed gray;
+}
+main .discuss .post-read-area .post-area .post-card .content-area .icon-counting-area {
+    padding-top: 15px;
+}
+main .discuss .post-read-area .post-area .post-card .content-area .left-icons {
+    gap: 18px;
+}
+
+
+/* read-area  */
+main .discuss .post-read-area .read-area {
+    padding: 25px;
+    background-color: rgba(128, 128, 128, 0.2);
+    border-radius: 10px;
+}
+main .discuss .post-read-area .reading-details {
+    background-color: white;
+    padding: 0 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}

@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Dear</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
         integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
@@ -14,120 +21,132 @@
 
 <body>
     <div class="container">
-        <section class="navigation">
-            <nav>
-                <div class="logo-area">
-                    <img src="images/logo.png" alt="">
-                </div>
-                <div class="icons-signin-area">
-                    <i class="fa-solid fa-house"></i>
-                    <i class="fa-solid fa-pencil"></i>
-                    <i class="fa-solid fa-user"></i>
-                    <i class="fa-solid fa-flag"></i>
-                    <button>Sign In</button>
-                </div>
-            </nav>
-        </section>
-        <section class="banner">
-            <div class="bg-img">
-                <div class="overlay">
-                    <div class="left-content">
-                        <div class="text-area">
-                            <h1>Welcome to the ReTro Forum</h1>
-                            <p>Share your favorite opinion and win and wp forum coffee mug!</p>
+        <header>
+            <!-- header navigation -->
+            <section class="navbar">
+                <nav class="navigation flex">
+                    <div class="logo-area">
+                        <a href=""><img src="images/logo.png" alt=""></a>
+                    </div>
+                    <div class="icons-signin-area">
+                        <a href=""><i title="Home" class="fa-solid fa-house"></i></a>
+                        <a href=""><i title="Tooltip" class="fa-solid fa-pencil"></i></a>
+                        <a href=""><i title="Users" class="fa-solid fa-user"></i></a>
+                        <a href=""><i title="Pro" class="fa-solid fa-flag"></i></a>
+                        <button>Sign In</button>
+                    </div>
+                </nav>
+            </section>
+
+            <!-- header banner -->
+            <section class="banner">
+                <div class="bg-img">
+                    <div class="overlay flex">
+                        <div class="left-content">
+                            <div class="text-area">
+                                <h1>Welcome to the ReTro Forum</h1>
+                                <p>Share your favorite opinion and win and wp forum coffee mug!</p>
+                            </div>
+                            <div class="input-area">
+                                <input type="text" placeholder="Search here anything">
+                                <button>Search</button>
+                            </div>
                         </div>
-                        <div class="input-area">
-                            <input type="text" placeholder="Search here anything">
-                            <button>Search</button>
+                        <div class="right-content">
+                            <div class="bg-collor">
+                                <div class="counting flex">
+                                    <span>Registered Users</span>
+                                    <span>01</span>
+                                </div>
+                                <div class="counting flex">
+                                    <span>Forum</span>
+                                    <span>05</span>
+                                </div>
+                                <div class="counting flex">
+                                    <span>Topics</span>
+                                    <span>01</span>
+                                </div>
+                                <div class="counting flex">
+                                    <span>Replies</span>
+                                    <span>01</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="right-content">
-                        <div class="bg-collor">
-                            <div class="counting">
-                                <span>Registered Users</span>
-                                <span>01</span>
-                            </div>
-                            <div class="counting">
-                                <span>Forum</span>
-                                <span>05</span>
-                            </div>
-                            <div class="counting">
-                                <span>Topics</span>
-                                <span>01</span>
-                            </div>
-                            <div class="counting">
-                                <span>Replies</span>
-                                <span>01</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </header>
 
         <main>
+            <!-- main discuss  -->
             <section class="discuss">
                 <div class="title-about">
                     <h2>Let’s Discuss</h2>
-                    <p>Yes, you can run unit tests and view the results directly within the app.The integrated testing features allow for a streamlined .</p>
+                    <p>Yes, you can run unit tests and view the results directly within the app.The integrated testing
+                        features allow for a streamlined .</p>
                 </div>
-                <div class="post-read-area">
+                <div class="post-read-area flex">
                     <div class="post-area">
-                        <div class="profile-area">
-                            <div class="active-status">
-                                <i class="fa-solid fa-circle"></i>
-                            </div>
-                            <div class="profile-img">
-                                <img style="width: 50px; border-radius: 30%;" src="images/IMG_20241028_111517.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="content-area">
-                            <div class="catagory-author">
-                                <span># Music</span>
-                                <span>Author : Awlad Hossain</span>
-                            </div>
-                            <div class="post-title">
-                                <h4>10 Kids Unaware of Their Halloween Costume</h4>
-                            </div>
-                            <div class="post-discription">
-                                <p>It’s one thing to subject yourself to ha Halloween costume mishap because,
-                                    hey that’s your prerogative</p>
-                            </div>
-                            <!-- dashed border-bottom  -->
-                            <div class="icon-counting-area">
-                                <div class="left-icons">
-                                    <div class="icon">
-                                        <i class="fa-regular fa-comment-dots"></i>                                        <span></span>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="fa-regular fa-eye"></i>                                        <span></span>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <span></span>
-                                    </div>
+                        <div class="post-card flex">
+                            <div class="profile-area">
+                                <div class="active-status">
+                                    <i class="fa-solid fa-circle"></i>
                                 </div>
-                                <div class="right-icon">
-                                    <i class="fa-regular fa-envelope"></i>
+                                <img style="width: 50px; border-radius: 30%;" src="images/IMG_20241028_111517.jpg"
+                                    alt="">
+                            </div>
+                            <div class="content-area">
+                                <div class="catagory-author">
+                                    <span># Music</span>
+                                    <span>Author : Awlad Hossain</span>
+                                </div>
+                                <div class="post-title">
+                                    <h4>10 Kids Unaware of Their Halloween Costume</h4>
+                                </div>
+                                <div class="post-discription">
+                                    <p>It’s one thing to subject yourself to ha Halloween costume mishap because,
+                                        hey that’s your prerogative</p>
+                                </div>
+                                <!-- dashed border-bottom  -->
+                                <div class="icon-counting-area flex">
+                                    <div class="left-icons flex">
+                                        <div class="icon">
+                                            <i class="fa-regular fa-comment-dots"></i> 
+                                            <span>678</span>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="fa-regular fa-eye"></i> 
+                                            <span>789</span>
+                                        </div>
+                                        <div class="icon">
+                                            <i class="fa-regular fa-clock"></i>
+                                            <span>899</span>
+                                        </div>
+                                    </div>
+                                    <div class="right-icon">
+                                        <i class="fa-regular fa-envelope"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="read-area">
-                        <div class="title-area">
-                            <h4>Title</h4>
-                            <div class="marking">
-                                <i class="fa-solid fa-check-double"></i>
-                                <span>Mark as read <span>(4)</span></span>
+                        <div class="read-card">
+                            <div class="title-area flex">
+                                <h4>Title</h4>
+                                <div class="marking">
+                                    <i style="color: rgb(31, 206, 31);" class="fa-solid fa-check-double"></i>
+                                    <span>Mark as read <span>(4)</span></span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="reading-details">
-                            <div class="reading-tite">
-                                <p>10 Kids Unaware of Their Halloween Costume</p>
-                            </div>
-                            <div class="vew-counting">
-                                <i class="fa-regular fa-eye"></i>  
-                                <span>1,568</span>
+                            <div class="reading-details flex">
+                                <div class="reading-tite">
+                                    <p>10 Kids Unaware of Their Halloween Costume</p>
+                                </div>
+                                <div class="vew-counting">
+                                    <i class="fa-regular fa-eye"></i>
+                                    <span>1,568</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -147,10 +166,11 @@
                 </div>
             </section>
 
-            <section class="latest-posts"> 
+            <section class="latest-posts">
                 <div class="title-about">
                     <h2>Latest Posts</h2>
-                    <p>Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
+                    <p>Yes, you can run unit tests and view the results directly within the app. The integrated testing
+                        features allow for a streamlined .</p>
                 </div>
                 <div class="card-area">
                     <div class="card">
@@ -173,7 +193,7 @@
                     </div>
                 </div>
             </section>
-        </main><i class="fa-brands fa-facebook-f"></i>
+        </main>
 
     </div>
     <footer>
@@ -181,7 +201,8 @@
             <div class="logo">
                 <img src="images/logo.png" alt="">
             </div>
-            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC</p>
+            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
+                Latin literature from 45 BC</p>
             <div class="icons">
                 <i class="fa-brands fa-twitter"></i>
                 <i class="fa-brands fa-facebook-f"></i>
