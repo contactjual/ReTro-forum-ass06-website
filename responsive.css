@@ -1,0 +1,80 @@
+/* for tablate device */
+
+@media screen and (max-width: 1000px) {
+
+    /* common style  */
+    .container {
+        width: 95%;
+    }
+    h1 {
+        font-size: 30px;
+        margin: 0;
+    } 
+    .title-about {
+        width: 300px;
+        margin: auto;
+        text-align: center;
+        padding: 30px 0 ;
+    }
+
+    /* header banner */
+    header .banner .bg-img .overlay {
+        flex-direction: column;
+        height: 450px;
+    }
+    header .banner .bg-img .overlay .right-content {
+        width: 50%;
+        margin-top: 20px;
+    }
+
+
+    /* main discuss */
+    main .discuss .post-read-area {
+        flex-direction: column;
+    }
+
+
+    /* join-forum */
+    main .discuss .overlay {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+
+    /* latest post */
+    main .latest-posts .card-area {
+        grid-template-columns: auto auto;
+    }
+}
+
+
+/* for mobile device  */
+@media screen and (max-width: 650px) {
+    /* header nav  */
+    header .navigation {
+        flex-direction: column;
+    }
+
+    /* header banner  */
+    header .banner .bg-img .overlay {
+        width: 300px;
+    }
+    header .banner .bg-img .overlay .right-content {
+        width: 90%;
+        margin-top: 20px;
+    }
+    header .banner .bg-img .overlay .left-content input {
+        padding: 12px 10px;
+        width: 250px;
+    }
+    header .banner .bg-img .overlay .left-content .input-area button {
+        position: absolute;
+        left: 185px;
+        top: 3.4px;
+    }
+
+    /* latest post */
+    main .latest-posts .card-area {
+        grid-template-columns: auto;
+    }
+}
