@@ -21,6 +21,10 @@ button {
     border-radius: 20px;
     cursor: pointer;
 }
+button:active {
+    transform: scale(.9789);
+    background-color: rgba(80, 80, 246, 0.632);
+}
 
 .flex {
     display: flex;
@@ -109,6 +113,8 @@ header .banner .bg-img .overlay .right-content .bg-collor {
 
 
 /* main discuss */
+
+/* post-area  */
 main .discuss .post-read-area {
     gap: 20px;
 }
@@ -120,6 +126,8 @@ main .discuss .post-read-area .post-area .active-status {
     left: 37px;
     top: -5px;
 }
+
+
 main .discuss .post-read-area .post-area .post-card {
     padding: 25px;
     border: 1px solid rgb(75, 75, 247);
@@ -127,6 +135,9 @@ main .discuss .post-read-area .post-area .post-card {
     border-radius: 10px;
     align-items: flex-start;
     gap: 20px;
+}
+main .discuss .post-read-area .post-area .post-card .content-area {
+    flex-basis: 89%;
 }
 main .discuss .post-read-area .post-area .post-card .catagory-author>span {
     margin-right: 20px;
