@@ -37,7 +37,7 @@ const createPost = (data) => {
             <div class="post-title">
                 <h4>${singleData.title}</h4>
             </div>
-            <div style = "cursor: pointer;" onclick="readPostShow()" class="post-discription">
+            <div class="post-discription">
                 <p>${singleData.description}</p>
             </div>
             <!-- dashed border-bottom  -->
@@ -56,7 +56,7 @@ const createPost = (data) => {
                         <span>${singleData.posted_time} min</span>
                     </div>
                 </div>
-                <div class="right-icon">
+                <div style= "cursor: pointer;" onclick="readPostShow()" class="right-icon">
                     <i class="fa-regular fa-envelope"></i>
                 </div>
             </div>
@@ -178,7 +178,19 @@ const searchInput = () => {
     const inputField = document.getElementById('input-field');
     const inputValue = inputField.value;
     console.log(inputValue);
+
+    getSearchingData(inputValue);
 };
+
+
+const getSearchingData = async (inputValue) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${inputValue}`);
+    const newData = await res.json();
+    console.log(newData);
+
+}
+
+
 
 
 
