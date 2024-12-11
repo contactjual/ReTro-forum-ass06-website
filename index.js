@@ -25,7 +25,7 @@ const createPost = (data) => {
         postBasicCard.innerHTML =
         `<div class="profile-area">
             <div class="active-status">
-                <i id="active-color" class="fa-solid fa-circle"></i>
+                <i class="fa-solid fa-circle active-color"></i>
             </div>
             <img style="width: 50px; border-radius: 30%;" src="images/IMG_20241028_111517.jpg"
                 alt="">
@@ -68,14 +68,11 @@ const createPost = (data) => {
         postBasicArea.appendChild(postBasicCard);
         
         // check active status 
-        const activeColor = document.getElementById('active-color');
+        const activeColor = document.getElementsByClassName('active-color');
         if (singleData.isActive === true){
             activeColor.style.color = 'green';
-        }
-        else{
-            activeColor.style.color = 'red';
-        }
-
+            console.log('hi im not good')
+        }   
 
     });
 }
