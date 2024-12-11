@@ -4,8 +4,7 @@ const allPostData = async () => {
     console.log(data);
 
     createPost(data);
-    // handleCreatePost(postData);
-
+    readPostShow(data);
 }
 
 const createPost = (data) => {
@@ -13,7 +12,7 @@ const createPost = (data) => {
     const postData = data.posts;
 
     postData.forEach((singleData) => {
-        // console.log(singleData);
+        console.log(singleData);
 
         const postBasicArea = document.getElementById('post-basic-area');
 
@@ -27,7 +26,7 @@ const createPost = (data) => {
             <div class="active-status">
                 <i class="fa-solid fa-circle prof-status"></i>
             </div>
-            <img style="width: 50px; border-radius: 30%;" src="images/IMG_20241028_111517.jpg"
+            <img style="width: 50px; border-radius: 30%;" src="${singleData.image}"
                 alt="">
         </div>
         <div class="content-area">
@@ -38,7 +37,7 @@ const createPost = (data) => {
             <div class="post-title">
                 <h4>${singleData.title}</h4>
             </div>
-            <div class="post-discription">
+            <div style = "cursor: pointer;" onclick="readPostShow()" class="post-discription">
                 <p>${singleData.description}</p>
             </div>
             <!-- dashed border-bottom  -->
@@ -88,16 +87,31 @@ const checkActiveStatus = (singleData) => {
             color.style.color = 'red'
         }
     });
-}
+};
 
 
 
-const handleCreatePost = (data) => {
+// read-post-record
+const readPostShow = (data, id) => {
+    const readPostRecored = document.getElementById('read-post-data');
+
+    const readPostRecoredCard = document.createElement('div');
+    readPostRecoredCard.classList.add('read-card'); 
+    readPostRecoredCard.innerHTML = `
+                            <div class="reading-details flex">
+                                <div class="reading-tite">
+                                    <p>10 Kids Unaware of Their Halloween Costume</p>
+                                </div>
+                                <div class="vew-counting flex">
+                                    <i class="fa-regular fa-eye"></i>
+                                    <span>1,568</span>
+                                </div>
+                            </div> `
+
+    readPostRecored.appendChild(readPostRecoredCard);
+};
 
 
-}
 
 
-allPostData()
-createPost()
-// handleCreatePost(data)
+allPostData();
