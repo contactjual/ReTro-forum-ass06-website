@@ -117,6 +117,7 @@ header .banner .bg-img .overlay .right-content .bg-collor {
 /* post-area  */
 main .discuss .post-read-area {
     gap: 20px;
+    align-items: flex-start;
 }
 main .discuss .post-read-area .post-area .profile-area {
     position: relative;
@@ -125,6 +126,13 @@ main .discuss .post-read-area .post-area .active-status {
     position: absolute;
     left: 37px;
     top: -5px;
+    /* color: red; */
+}
+
+
+/* this class will add dynamically  */
+.active-color {
+    color: green;
 }
 
 

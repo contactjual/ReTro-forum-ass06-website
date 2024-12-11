@@ -13,7 +13,7 @@ const createPost = (data) => {
     const postData = data.posts;
 
     postData.forEach((singleData) => {
-        console.log(singleData);
+        // console.log(singleData);
 
         const postBasicArea = document.getElementById('post-basic-area');
 
@@ -23,9 +23,9 @@ const createPost = (data) => {
         postBasicCard.style.marginBottom = '20px';
 
         postBasicCard.innerHTML =
-        `<div class="profile-area">
+            `<div class="profile-area">
             <div class="active-status">
-                <i class="fa-solid fa-circle active-color"></i>
+                <i class="fa-solid fa-circle prof-status"></i>
             </div>
             <img style="width: 50px; border-radius: 30%;" src="images/IMG_20241028_111517.jpg"
                 alt="">
@@ -62,20 +62,35 @@ const createPost = (data) => {
                 </div>
             </div>
         </div> `
-        
-        
+
+
         // appen card to the parent div 
         postBasicArea.appendChild(postBasicCard);
-        
-        // check active status 
-        const activeColor = document.getElementsByClassName('active-color');
-        if (singleData.isActive === true){
-            activeColor.style.color = 'green';
-            console.log('hi im not good')
-        }   
 
+        checkActiveStatus(singleData)
+        
+    });
+
+}
+
+// check active status 
+const checkActiveStatus = (singleData) => {
+    const activeColor = document.querySelectorAll('.prof-status');
+
+    // console.log(singleData.isActive);
+    // console.log(activeColor);
+
+    activeColor.forEach((color) => {
+        if (singleData.isActive === true) {
+            color.style.color = 'green'
+        }
+        else{
+            color.style.color = 'red'
+        }
     });
 }
+
+
 
 const handleCreatePost = (data) => {
 
