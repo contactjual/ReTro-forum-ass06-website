@@ -58,6 +58,8 @@
     /* header banner  */
     header .banner .bg-img .overlay {
         width: 300px;
+        margin: auto;
+        text-align: center;
     }
     header .banner .bg-img .overlay .right-content {
         width: 90%;
@@ -67,9 +69,12 @@
         padding: 12px 10px;
         width: 250px;
     }
+    header .banner .bg-img .overlay .left-content .text-area {
+        padding: 10px;
+    }
     header .banner .bg-img .overlay .left-content .input-area button {
         position: absolute;
-        left: 185px;
+        left: 200px;
         top: 3.4px;
     }
 
