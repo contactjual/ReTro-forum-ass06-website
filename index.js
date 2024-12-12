@@ -1,13 +1,7 @@
 const allPostData = async () => {
-    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts')
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`)
     const data = await res.json();
     // console.log(data);
-
-    createPost(data);
-    readPostShow(data);
-}
-
-const createPost = (data) => {
 
     const postData = data.posts;
 
@@ -16,35 +10,30 @@ const createPost = (data) => {
 
         creatPostCard(singleData);
 
-        checkActiveStatus(singleData)
+        checkActiveStatus(singleData);
 
     });
+
+    readPostShow(data);
+    createPost(data);
 };
 
 
 
 
-// create post and Show depents on click search button 
-
-
-
-
-
-
-
-
+// create post depents on click search button 
 
 // creat post card 
 function creatPostCard(singleData) {
     const postBasicArea = document.getElementById('post-basic-area');
-    
+
     const postBasicCard = document.createElement('div');
     postBasicCard.classList.add('post-card');
     postBasicCard.classList.add('flex');
     postBasicCard.style.marginBottom = '20px';
-    
+
     postBasicCard.innerHTML =
-    `<div class="profile-area">
+        `<div class="profile-area">
     <div class="active-status">
     <i class="fa-solid fa-circle prof-status"></i>
     </div>
@@ -83,51 +72,118 @@ function creatPostCard(singleData) {
                     </div>
                     </div>
                     </div> `
-                    
-                    // appen card to the parent div 
-                    postBasicArea.appendChild(postBasicCard);
-                };
-                
-                
-                // --------------------------PROBLEM-------------------------------------------
-                
-                // check active status 
-                const checkActiveStatus = (singleData) => {
-                    const activeColor = document.querySelectorAll('.prof-status');
-                    
-                    // console.log(singleData.isActive);
-                    // console.log(activeColor);
-                    
-                    activeColor.forEach((color) => {
-                        if (singleData.isActive === true) {
-                            color.style.color = 'green'
-                        }
-                        else {
-                            color.style.color = 'red'
-                        }
-                    });
-                };
-                
-                // -----------------------------------------------------------------------------
-                
-                
-                
-                // ----------------------PROBLEM--------------------------------------------------
-                
-                const findId = (id) => {
-                    
-                }
-                
-                // read-post-record
-                const readPostShow = (data) => {
-                    
-                    // findId(id);
-                    
-                    const readPostRecored = document.getElementById('read-post-data');
-                    
-                    const readPostRecoredCard = document.createElement('div');
-                    readPostRecoredCard.classList.add('read-card');
-                    readPostRecoredCard.innerHTML = `
+
+    // appen card to the parent div 
+    postBasicArea.appendChild(postBasicCard);
+};
+
+
+// create Searched Post card 
+
+const creatSearchedPost = (makeSingleData) => {
+
+    const postBasicArea = document.getElementById('post-basic-area');
+
+    const postBasicCard = document.createElement('div');
+    postBasicCard.classList.add('post-card');
+    postBasicCard.classList.add('flex');
+    postBasicCard.style.marginBottom = '20px';
+
+    postBasicCard.innerHTML =
+        `<div class="profile-area">
+    <div class="active-status">
+    <i class="fa-solid fa-circle prof-status"></i>
+    </div>
+    <img style="width: 50px; border-radius: 30%;" src="${makeSingleData.image}"
+    alt="">
+    </div>
+    <div class="content-area">
+    <div class="catagory-author">
+    <span># ${makeSingleData.category}</span>
+                <span>Author : ${makeSingleData.author.name}</span>
+                </div>
+                <div class="post-title">
+                <h4>${makeSingleData.title}</h4>
+                </div>
+                <div class="post-discription">
+                <p>${makeSingleData.description}</p>
+                </div>
+                <!-- dashed border-bottom  -->
+                <div class="icon-counting-area flex">
+                <div class="left-icons flex">
+                <div class="icon">
+                <i class="fa-regular fa-comment-dots"></i>
+                <span>${makeSingleData.comment_count}</span>
+                </div>
+                <div class="icon">
+                <i class="fa-regular fa-eye"></i>
+                <span>${makeSingleData.view_count}</span>
+                </div>
+                <div class="icon">
+                <i class="fa-regular fa-clock"></i>
+                        <span>${makeSingleData.posted_time} min</span>
+                    </div>
+                    </div>
+                    <div style= "cursor: pointer;" onclick="readPostShow()" class="right-icon">
+                    <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    </div>
+                    </div> `
+
+    // appen card to the parent div 
+    postBasicArea.appendChild(postBasicCard);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// --------------------------PROBLEM-------------------------------------------
+
+// check active status 
+const checkActiveStatus = (singleData) => {
+    const activeColor = document.querySelectorAll('.prof-status');
+
+    // console.log(singleData.isActive);
+    // console.log(activeColor);
+
+    activeColor.forEach((color) => {
+        if (singleData.isActive === true) {
+            color.style.color = 'green'
+        }
+        else {
+            color.style.color = 'red'
+        }
+    });
+};
+
+// -----------------------------------------------------------------------------
+
+
+
+// ----------------------PROBLEM--------------------------------------------------
+
+const findId = (id) => {
+
+}
+
+// read-post-record
+const readPostShow = (data) => {
+
+    // findId(id);
+
+    const readPostRecored = document.getElementById('read-post-data');
+
+    const readPostRecoredCard = document.createElement('div');
+    readPostRecoredCard.classList.add('read-card');
+    readPostRecoredCard.innerHTML = `
                     <div class="reading-details flex">
                     <div class="reading-tite">
                     <p>10 Kids Unaware of Their Halloween Costume</p>
@@ -137,18 +193,18 @@ function creatPostCard(singleData) {
                     <span>1,568</span>
                     </div>
                     </div> `
-                    
-                    readPostRecored.appendChild(readPostRecoredCard);
-                };
-                
-                // -------------------------------------------------------------------------------------------
-                
-                
-                
-                
-                // Latest Posts 
-                
-                const letestData = async () => {
+
+    readPostRecored.appendChild(readPostRecoredCard);
+};
+
+// -------------------------------------------------------------------------------------------
+
+
+
+
+// Latest Posts 
+
+const letestData = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
     const lastData = await res.json();
 
@@ -156,16 +212,16 @@ function creatPostCard(singleData) {
 };
 
 const createLatestPost = (lastData) => {
-    
+
     lastData.forEach((singleLastestData) => {
-        
+
         // console.log(singleLastestData);
-        
+
         const letestPostCardArea = document.getElementById('latest-post-card-area');
         const createCard = document.createElement('div');
         createCard.classList.add('card')
         createCard.innerHTML =
-        `<img style="width: 100%;" src="${singleLastestData.cover_image}" alt="">
+            `<img style="width: 100%;" src="${singleLastestData.cover_image}" alt="">
         <div class="date">
         <i class="fa-regular fa-calendar"></i>
         <span>${singleLastestData.author.posted_date || 'Not Published'}</span>
@@ -181,11 +237,12 @@ const createLatestPost = (lastData) => {
         <span>${singleLastestData.author.designation || 'Unknown'}</span>
         </div>
         </div> `;
-        
+
         letestPostCardArea.appendChild(createCard);
     });
-    
+
 }
+
 
 
 // search here input 
@@ -194,7 +251,7 @@ const searchInput = () => {
     const inputField = document.getElementById('input-field');
     const inputValue = inputField.value;
     // console.log(inputValue);
-    
+
     getSearchingData(inputValue);
 };
 
@@ -202,32 +259,20 @@ const searchInput = () => {
 const getSearchingData = async (inputValue) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${inputValue}`);
     const newData = await res.json();
-    // console.log(newData);
-    
+
     const makePostData = newData.posts;
-    
+
+
+    // eikhane ami 'creatPostCard' function data golo delete korte hobe 
+    const postBasicArea = document.getElementById('post-basic-area');
+    postBasicArea.innerHTML = '';
+
+    // 'creatSearchedPost' function ti kaj korche
     makePostData.forEach((makeSingleData) => {
-        searchResult(inputValue, makeSingleData);
+        // searchResult(inputValue, makeSingleData);
         creatSearchedPost(makeSingleData);
-    })
-}
-
-
-function searchResult(inputValue, makeSingleData) {
-    const inputCategory = inputValue.toUpperCase();
-
-
-    if (inputCategory === '') {
-
-    }
-    else if (inputCategory === makeSingleData.category.toUpperCase()) {
-
-    }
-
-}
-
-
-
+    });
+};
 
 
 
