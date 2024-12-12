@@ -1,7 +1,7 @@
 const allPostData = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`)
     const data = await res.json();
-    // console.log(data);
+    console.log(data);
 
     const postData = data.posts;
 
@@ -10,8 +10,6 @@ const allPostData = async () => {
         creatPostCard(singleData);
         checkActiveStatus(singleData);
     });
-
-    readPostShow(data);
 };
 
 
@@ -63,7 +61,7 @@ function creatPostCard(singleData) {
                         <span>${singleData.posted_time} min</span>
                     </div>
                     </div>
-                    <div style= "cursor: pointer;" onclick="readPostShow()" class="right-icon">
+                    <div style= "cursor: pointer;" onclick="readPostHandle('${singleData.id}')" class="right-icon">
                     <i class="fa-regular fa-envelope"></i>
                     </div>
                     </div>
@@ -118,7 +116,7 @@ const creatSearchedPost = (makeSingleData) => {
                         <span>${makeSingleData.posted_time} min</span>
                     </div>
                     </div>
-                    <div style= "cursor: pointer;" onclick="readPostShow()" class="right-icon">
+                    <div style= "cursor: pointer;" onclick="readPostHandle('${makeSingleData.id}')" class="right-icon">
                     <i class="fa-regular fa-envelope"></i>
                     </div>
                     </div>
@@ -152,31 +150,37 @@ const checkActiveStatus = (singleData) => {
 
 // ----------------------PROBLEM--------------------------------------------------
 
-const findId = (id) => {
 
+// read post handle 
+const readPostHandle = async (id) => {
+    console.log(id);
+    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts')
+    const dataById = await res.json();
+    const posts = dataById.posts;
+
+    const post = posts.find(singleData => singleData.id === parseInt(id));
+    // console.log(post)
+    readPostShow (post);
 }
-
 
 
 // read-post-record
 let a = 0;
-const readPostShow = (data) => {
-
-    // findId(id);
+const readPostShow = (post) => {
 
     const readPostRecored = document.getElementById('read-post-data');
 
     const readPostRecoredCard = document.createElement('div');
     readPostRecoredCard.classList.add('read-card');
     readPostRecoredCard.innerHTML = `
-                    <div class="reading-details flex">
-                    <div class="reading-tite">
-                    <p>10 Kids Unaware of Their Halloween Costume</p>
-                    </div>
-                    <div class="vew-counting flex">
-                    <i class="fa-regular fa-eye"></i>
-                    <span>1,568</span>
-                    </div>
+                    <div class="reading-details flex" style= "gap=10px">
+                        <div class="reading-tite">
+                            <p>${post.title || 'No post add to read yet'}</p>
+                        </div>
+                        <div class="vew-counting flex">
+                            <i class="fa-regular fa-eye"></i>
+                            <span>${post.view_count || 0}</span>
+                        </div>
                     </div> `
 
     readPostRecored.appendChild(readPostRecoredCard);
