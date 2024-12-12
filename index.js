@@ -1,7 +1,7 @@
 const allPostData = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`)
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
 
     const postData = data.posts;
 
@@ -148,7 +148,7 @@ const checkActiveStatus = (singleData) => {
 
 
 
-// ----------------------PROBLEM--------------------------------------------------
+// ----------------------PROBLEM SOLVED--------------------------------------------------
 
 
 // read post handle 
@@ -160,14 +160,15 @@ const readPostHandle = async (id) => {
 
     const post = posts.find(singleData => singleData.id === parseInt(id));
     // console.log(post)
-    readPostShow (post);
+
+    readPostShow(post)
+    setApiSingleDataLocalStorage(post);
 }
 
 
 // read-post-record
 let a = 0;
 const readPostShow = (post) => {
-
     const readPostRecored = document.getElementById('read-post-data');
 
     const readPostRecoredCard = document.createElement('div');
@@ -181,7 +182,7 @@ const readPostShow = (post) => {
                             <i class="fa-regular fa-eye"></i>
                             <span>${post.view_count || 0}</span>
                         </div>
-                    </div> `
+                    </div> `;
 
     readPostRecored.appendChild(readPostRecoredCard);
 
@@ -316,5 +317,50 @@ function loadingSpinnerCreate() {
 };
 
 
+
+
+
+
+// set to localStorage
+
+function setApiSingleDataLocalStorage(post) {
+
+    let myPostDataContainer = JSON.parse(localStorage.getItem('posts')) || [];
+
+    // converted to array 
+    if (!Array.isArray(myPostDataContainer)) {
+        myPostDataContainer = [];
+    }   
+
+    myPostDataContainer.push(post);
+
+
+    const convertStringifyPost = JSON.stringify(myPostDataContainer);
+    localStorage.setItem('posts', convertStringifyPost);
+
+    console.log(myPostDataContainer);
+}
+
+
+// get from localStorage
+
+function getApiSingleDataFromLocalStorage() {
+    const getPost = localStorage.getItem('posts');
+    if (getPost) {
+        const savedPostParse = JSON.parse(getPost);
+        savedPostParse.forEach((mySiglePost) => {
+            readPostShow(mySiglePost);
+        });
+    }
+    else {
+        console.log('No data found');
+    }
+}
+
+
+
+
+
 allPostData();
+getApiSingleDataFromLocalStorage();
 letestData();
