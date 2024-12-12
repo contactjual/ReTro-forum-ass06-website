@@ -7,15 +7,11 @@ const allPostData = async () => {
 
     postData.forEach((singleData) => {
         // console.log(singleData);
-
         creatPostCard(singleData);
-
         checkActiveStatus(singleData);
-
     });
 
     readPostShow(data);
-    createPost(data);
 };
 
 
@@ -23,7 +19,7 @@ const allPostData = async () => {
 
 // create post depents on click search button 
 
-// creat post card 
+// creat post card by difult
 function creatPostCard(singleData) {
     const postBasicArea = document.getElementById('post-basic-area');
 
@@ -79,9 +75,7 @@ function creatPostCard(singleData) {
 
 
 // create Searched Post card 
-
 const creatSearchedPost = (makeSingleData) => {
-
     const postBasicArea = document.getElementById('post-basic-area');
 
     const postBasicCard = document.createElement('div');
@@ -135,33 +129,21 @@ const creatSearchedPost = (makeSingleData) => {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-// --------------------------PROBLEM-------------------------------------------
+// --------------------------PROBLEM SOLVED-------------------------------------------
 
 // check active status 
 const checkActiveStatus = (singleData) => {
-    const activeColor = document.querySelectorAll('.prof-status');
 
-    // console.log(singleData.isActive);
-    // console.log(activeColor);
+    const color = document.getElementsByClassName('prof-status');
+    const lastClass = color[color.length - 1];
+    // console.log(lastClass);
 
-    activeColor.forEach((color) => {
-        if (singleData.isActive === true) {
-            color.style.color = 'green'
-        }
-        else {
-            color.style.color = 'red'
-        }
-    });
+    if (singleData.isActive === true) {
+        lastClass.style.color = 'green';
+    }
+    else if (singleData.isActive === false) {
+        lastClass.style.color = 'red';
+    }
 };
 
 // -----------------------------------------------------------------------------
@@ -174,7 +156,10 @@ const findId = (id) => {
 
 }
 
+
+
 // read-post-record
+let a = 0;
 const readPostShow = (data) => {
 
     // findId(id);
@@ -195,6 +180,12 @@ const readPostShow = (data) => {
                     </div> `
 
     readPostRecored.appendChild(readPostRecoredCard);
+
+
+    // add read post number 
+    a++
+    const readPostCountElement = document.getElementById('read-post-count');
+    readPostCountElement.innerText = a;
 };
 
 // -------------------------------------------------------------------------------------------
@@ -240,8 +231,7 @@ const createLatestPost = (lastData) => {
 
         letestPostCardArea.appendChild(createCard);
     });
-
-}
+};
 
 
 
@@ -252,6 +242,8 @@ const searchInput = () => {
     const inputValue = inputField.value;
     // console.log(inputValue);
 
+    // leading spinner  start
+    loadingSpinnerCreate();
     getSearchingData(inputValue);
 };
 
@@ -259,21 +251,65 @@ const searchInput = () => {
 const getSearchingData = async (inputValue) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${inputValue}`);
     const newData = await res.json();
-
     const makePostData = newData.posts;
 
+    if (makePostData.length !== 0) {
+        // eikhane ami 'creatPostCard' function data golo delete korbo 
+        const postBasicArea = document.getElementById('post-basic-area');
+        postBasicArea.innerHTML = '';
 
-    // eikhane ami 'creatPostCard' function data golo delete korte hobe 
-    const postBasicArea = document.getElementById('post-basic-area');
-    postBasicArea.innerHTML = '';
+        console.log(makePostData)
+        makePostData.forEach((makeSingleData) => {
 
-    // 'creatSearchedPost' function ti kaj korche
-    makePostData.forEach((makeSingleData) => {
-        // searchResult(inputValue, makeSingleData);
-        creatSearchedPost(makeSingleData);
-    });
+            // leading spinner  close
+            const getSpinnerContainerEliment = document.getElementById('leading-spinner');
+            getSpinnerContainerEliment.innerHTML = '';
+
+
+            creatSearchedPost(makeSingleData);
+            checkActiveStatus(makeSingleData);
+        });
+    }
+    else {
+        // eikhane ami 'creatPostCard' function data golo delete korbo 
+        const postBasicArea = document.getElementById('post-basic-area');
+        postBasicArea.innerHTML = '';
+
+        // leading spinner  close
+        const getSpinnerContainerEliment = document.getElementById('leading-spinner');
+        getSpinnerContainerEliment.innerHTML = '';
+
+        // show to UI 'No post found for this search'
+        const postBasicAreaFound = document.getElementById('post-basic-area');
+
+        const postBasicCard = document.createElement('div');
+        postBasicCard.classList.add('post-card');
+        postBasicCard.classList.add('flex');
+        postBasicCard.style.marginBottom = '20px';
+
+        postBasicCard.innerHTML = `<h2>No post found for this search</h2>`
+
+        // appen card to the parent div 
+        postBasicAreaFound.appendChild(postBasicCard);
+    };
 };
 
+
+function loadingSpinnerCreate() {
+    const getSpinnerContainerEliment = document.getElementById('leading-spinner');
+    const createDiv = document.createElement('div');
+    createDiv.style.textAlign = 'center'
+
+    // createDiv.innerHTML = `
+    //     <span class="loading loading-dots loading-xs"></span>
+    //     <span class="loading loading-dots loading-sm"></span>
+    //     <span class="loading loading-dots loading-md"></span>
+    // `;
+
+    createDiv.innerHTML = `<h1> Loding Post... </h1>`;
+
+    getSpinnerContainerEliment.appendChild(createDiv);
+};
 
 
 allPostData();
