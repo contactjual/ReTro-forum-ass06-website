@@ -15,9 +15,8 @@ const allPostData = async () => {
 
 
 
-// create post depents on click search button 
 
-// creat post card by difult
+// creat post card by difult or searching data
 function creatPostCard(singleData) {
     const postBasicArea = document.getElementById('post-basic-area');
 
@@ -70,61 +69,6 @@ function creatPostCard(singleData) {
     // appen card to the parent div 
     postBasicArea.appendChild(postBasicCard);
 };
-
-
-// create Searched Post card 
-const creatSearchedPost = (makeSingleData) => {
-    const postBasicArea = document.getElementById('post-basic-area');
-
-    const postBasicCard = document.createElement('div');
-    postBasicCard.classList.add('post-card');
-    postBasicCard.classList.add('flex');
-    postBasicCard.style.marginBottom = '20px';
-
-    postBasicCard.innerHTML =
-        `<div class="profile-area">
-    <div class="active-status">
-    <i class="fa-solid fa-circle prof-status"></i>
-    </div>
-    <img style="width: 50px; border-radius: 30%;" src="${makeSingleData.image}"
-    alt="">
-    </div>
-    <div class="content-area">
-    <div class="catagory-author">
-    <span># ${makeSingleData.category}</span>
-                <span>Author : ${makeSingleData.author.name}</span>
-                </div>
-                <div class="post-title">
-                <h4>${makeSingleData.title}</h4>
-                </div>
-                <div class="post-discription">
-                <p>${makeSingleData.description}</p>
-                </div>
-                <!-- dashed border-bottom  -->
-                <div class="icon-counting-area flex">
-                <div class="left-icons flex">
-                <div class="icon">
-                <i class="fa-regular fa-comment-dots"></i>
-                <span>${makeSingleData.comment_count}</span>
-                </div>
-                <div class="icon">
-                <i class="fa-regular fa-eye"></i>
-                <span>${makeSingleData.view_count}</span>
-                </div>
-                <div class="icon">
-                <i class="fa-regular fa-clock"></i>
-                        <span>${makeSingleData.posted_time} min</span>
-                    </div>
-                    </div>
-                    <div style= "cursor: pointer;" onclick="readPostHandle('${makeSingleData.id}')" class="right-icon">
-                    <i class="fa-regular fa-envelope"></i>
-                    </div>
-                    </div>
-                    </div> `
-
-    // appen card to the parent div 
-    postBasicArea.appendChild(postBasicCard);
-}
 
 
 // --------------------------PROBLEM SOLVED-------------------------------------------
@@ -271,7 +215,8 @@ const getSearchingData = async (inputValue) => {
             getSpinnerContainerEliment.innerHTML = '';
 
 
-            creatSearchedPost(makeSingleData);
+            // creatSearchedPost(makeSingleData);
+            creatPostCard(makeSingleData);
             checkActiveStatus(makeSingleData);
         });
     }
@@ -335,6 +280,7 @@ function setApiSingleDataLocalStorage(post) {
     myPostDataContainer.push(post);
 
 
+
     const convertStringifyPost = JSON.stringify(myPostDataContainer);
     localStorage.setItem('posts', convertStringifyPost);
 
@@ -356,6 +302,9 @@ function getApiSingleDataFromLocalStorage() {
         console.log('No data found');
     }
 }
+
+
+
 
 
 
